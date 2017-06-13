@@ -36,3 +36,50 @@ Adding the following route entry to your local route table to enable direct ward
   
 ./bin/provision_cf
 ```
+
+
+most propably it will hang somewhere (96% ???)
+
+If this happens, please login into the cf box (vagrant ssh cf) and do:
+
+```
+sudo su --
+monit restart all
+```
+
+don't worry, if an error message occures ;)
+
+type 
+```
+monit summary
+```
+
+and check whether the list looks healthy..
+
+```
+root@bosh-lite:/home/vagrant# monit summary
+The Monit daemon 5.2.4 uptime: 1h 34m
+
+Process 'nats'                      running
+Process 'blobstore_nginx'           running
+Process 'postgres'                  running
+Process 'director'                  running
+Process 'worker_1'                  running
+Process 'worker_2'                  running
+Process 'worker_3'                  running
+Process 'worker_4'                  running
+Process 'director_scheduler'        running
+Process 'director_nginx'            running
+Process 'health_monitor'            running
+Process 'warden_cpi'                running
+Process 'garden'                    running
+System 'system_agent-id-bosh-0'     running
+
+```
+
+
+, maybe even repeat the monit restart all .
+
+
+
+
