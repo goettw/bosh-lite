@@ -1,13 +1,13 @@
 On windows machine, do
 
    ```
-vagrant up
+vagrant up --provider=virtualbox
    ```
 
 2 VMs are created
 
 ```
-vagrant ssh boshlite --provider=virtualbox
+vagrant ssh boshlite 
 ```
 
 after logged in into the linux box do:
