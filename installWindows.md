@@ -83,3 +83,12 @@ System 'system_agent-id-bosh-0'     running
 
 
 
+If everything is ok, go back to the boshlite box and restart
+
+```
+./bin/provision_cf
+```
+This should now get all the cloudfoundry sources from github (this takes long.. an hour or so ..?)..
+
+
+
