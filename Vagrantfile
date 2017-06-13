@@ -1,4 +1,5 @@
 Vagrant.configure('2') do |config|
+   config.vm.define "cf" do |cf|
   config.vm.box = 'cloudfoundry/bosh-lite'
 
   config.vm.provider :virtualbox do |v, override|
@@ -32,5 +33,17 @@ Vagrant.configure('2') do |config|
     override.vm.box = 'cloudfoundry/no-support-for-bosh-lite-on-workstation'
     #we no longer build current boxes for vmware_workstation
     #ensure that this fails. otherwise the user gets an old box
+  end
+end
+  config.vm.define "boshlite" do |boshlite|
+    boshlite.vm.provider :virtualbox do |v, override|
+      override.vm.box = 'ubuntu/trusty64'
+ 
+      # To use a different IP address for the bosh-lite director, uncomment this line:
+      override.vm.network :private_network, ip: '192.168.50.14', id: :local
+      override.vm.network :public_network
+      v.memory = 6144
+      v.cpus = 2
+    end
   end
 end
