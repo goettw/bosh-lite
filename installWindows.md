@@ -1,13 +1,17 @@
 On windows machine, do
 
-```
+   ```
 vagrant up
+   ```
 
 2 VMs are created
+
 ```
 vagrant ssh boshlite
 ```
+
 after logged in into the linux box do:
+
 ```
 sudo -E apt-get update
 sudo -E apt-get -y install build-essential linux-headers-`uname -r`
