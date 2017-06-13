@@ -7,7 +7,7 @@ vagrant up
 2 VMs are created
 
 ```
-vagrant ssh boshlite
+vagrant ssh boshlite --provider=virtualbox
 ```
 
 after logged in into the linux box do:
