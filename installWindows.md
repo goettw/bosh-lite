@@ -1,7 +1,7 @@
 On windows machine, do
 
    ```
-vagrant up --provider=virtualbox
+vagrant up
    ```
 
 2 VMs are created
