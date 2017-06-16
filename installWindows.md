@@ -104,7 +104,7 @@ bosh upload release https://bosh.io/d/github.com/cloudfoundry/cflinuxfs2-rootfs-
 bosh deployment bosh-lite/deployments/diego.yml
 bosh -n create release --force && bosh -n upload release && bosh -n deploy
 
- vi /home/vagrant/diego-release/bosh-lite/deployments/diego.yml
+sed -i -- 's/cflinuxfs2fs$/cflinuxfs2fs-rootfs/g' bosh-lite/deployments/diego.yml
 ```
 
 
