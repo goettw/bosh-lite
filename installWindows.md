@@ -94,7 +94,7 @@ bosh upload release https://bosh.io/d/github.com/cloudfoundry/garden-runc-releas
 bosh upload release https://bosh.io/d/github.com/cloudfoundry/cflinuxfs2-rootfs-release
 bosh deployment bosh-lite/deployments/diego.yml
 
-sed -i -- 's/cflinuxfs2fs$/cflinuxfs2fs-rootfs/g' bosh-lite/deployments/diego.yml
+sed -i -- 's/cflinuxfs2$/cflinuxfs2-rootfs/g' bosh-lite/deployments/diego.yml
 
 sudo bosh -n create release --force && bosh -n upload release && bosh -n deploy
 
