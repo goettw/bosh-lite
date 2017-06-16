@@ -11,7 +11,7 @@ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-tru
 bosh update-cloud-config ~/workspace/cf-deployment/bosh-lite/cloud-config.yml
 bosh -d cf deploy ~/workspace/cf-deployment/cf-deployment.yml -o ~/workspace/cf-deployment/operations/bosh-lite.yml  -v system_domain=bosh-lite.com
 ```
-to retrieve the admin passowrd, type
+to retrieve the admin password, type
 ```
 bosh interpolate ~/deployments/vbox/deployment-vars.yml --path /cf_admin_password
 ```
