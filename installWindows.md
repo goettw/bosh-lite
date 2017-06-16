@@ -96,7 +96,7 @@ bosh deployment bosh-lite/deployments/diego.yml
 
 sed -i -- 's/cflinuxfs2fs$/cflinuxfs2fs-rootfs/g' bosh-lite/deployments/diego.yml
 
-bosh -n create release --force && bosh -n upload release && bosh -n deploy
+sudo bosh -n create release --force && bosh -n upload release && bosh -n deploy
 
 
 ```
