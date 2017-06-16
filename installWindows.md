@@ -25,7 +25,7 @@ Logged in as `admin'
 Adding the following route entry to your local route table to enable direct warden container access. Your sudo password may be required.
   - net 10.244.0.0/19 via 192.168.50.4
   
-./bin/provision_cf
+sudo ./bin/provision_cf
 ```
 
 
