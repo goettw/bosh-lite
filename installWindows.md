@@ -1,27 +1,18 @@
 On windows machine, do
 
    ```
-vagrant up
+vagrant up --provider=virtualbox
    ```
 
-2 VMs are created
+2 VMs are created 
 
 ```
 vagrant ssh boshlite 
 ```
-
-after logged in into the linux box do:
+*I do this with the git bash Application. Windows Powershell does not find a ssh-client (in my case)*
+once logged in into the linux box do:
 
 ```
-sudo -E apt-get update
-sudo -E apt-get -y install build-essential linux-headers-`uname -r`
-sudo -E apt-get -y install ruby ruby-dev git zip
-sudo -E gem install bosh_cli --no-ri --no-rdoc
-wget https://github.com/cloudfoundry-incubator/spiff/releases/download/v1.0.8/spiff_linux_amd64.zip
-unzip spiff_linux_amd64.zip
-sudo mv spiff /usr/local/bin
-git clone https://github.com/goettw/bosh-lite.git
-git clone https://github.com/cloudfoundry/cf-release
 cd bosh-lite/
 bosh target 192.168.50.4 lite
 Target set to `Bosh Lite Director'
@@ -96,7 +87,7 @@ This should now get all the cloudfoundry sources from github (this takes long.. 
 ```
 git clone https://github.com/cloudfoundry/diego-release.git
 cd diego-release/
-git checkout mast
+git checkout master
 ./scripts/update
 SQL_FLAVOR='postgres' ./scripts/generate-bosh-lite-manifests
 bosh upload release https://bosh.io/d/github.com/cloudfoundry/garden-runc-release
