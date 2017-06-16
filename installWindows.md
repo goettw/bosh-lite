@@ -90,5 +90,24 @@ If everything is ok, go back to the boshlite box and restart
 ```
 This should now get all the cloudfoundry sources from github (this takes long.. an hour or so ..?)..
 
+# Diego
+[instruction found here](https://github.com/cloudfoundry/diego-release/tree/develop/examples/bosh-lite)
+
+```
+git clone https://github.com/cloudfoundry/diego-release.git
+cd diego-release/
+git checkout mast
+./scripts/update
+SQL_FLAVOR='postgres' ./scripts/generate-bosh-lite-manifests
+bosh upload release https://bosh.io/d/github.com/cloudfoundry/garden-runc-release
+bosh upload release https://bosh.io/d/github.com/cloudfoundry/cflinuxfs2-rootfs-release
+bosh deployment bosh-lite/deployments/diego.yml
+bosh -n create release --force && bosh -n upload release && bosh -n deploy
+
+ vi /home/vagrant/diego-release/bosh-lite/deployments/diego.yml
+```
+
+
+
 
 
